@@ -15,3 +15,8 @@ Milka/obj/Debug/netcoreapp2.1/Milka.assets.cache
 Milka/obj/Milka.csproj.nuget.cache
 Milka/obj/Milka.csproj.nuget.g.props
 Milka/obj/project.assets.json
+Milka/obj/project.assets.json
+Milka/obj/Milka.csproj.nuget.g.props
+Milka/obj/Milka.csproj.nuget.cache
+Milka/obj/Debug/netcoreapp2.1/Milka.assets.cache
+*.json
