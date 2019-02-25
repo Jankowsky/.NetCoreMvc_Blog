@@ -1,0 +1,116 @@
+@model IEnumerable<Milka.Models.Post>
+
+
+<div class="form-row text-center">
+    <div class="col-12">
+        <p>
+            <br/>
+            <br/>
+            
+        </p>
+        <br/>
+        <div class="bg-primary p-1 text-white">
+            <h4>List of Posts</h4>
+        </div>
+        <table class="table table-bordered table-dark">
+            <tr>
+                <th scope="col">
+                    @Html.DisplayNameFor(model => model.Id)
+                </th>
+                <th scope="col">
+                    <p>Image</p>
+                </th>
+                <th scope="col">
+                    @Html.DisplayNameFor(model => model.Title)
+                </th>
+                <th scope="col">
+                    @Html.DisplayNameFor(model => model.Created)
+                </th>
+                <th scope="col">
+                    @Html.DisplayNameFor(model => model.Author)
+                </th>
+                <th scope="col">
+                    <input type="button" value="New Post" class="btn btn-primary" onclick="window.location = '@Url.Action("AddPost", "Admin")'"/>
+                    
+                </th>
+            </tr>
+
+        @if (Model.Count() == 0)
+        {
+            <tr><td colspan="6" class="text-center">Empty.</td></tr>
+        }
+        else
+        {
+            foreach (var item in Model)
+             {
+                 <tr scope="row">
+                     <td>
+                         @Html.DisplayFor(modelItem => item.Id)
+                     </td>
+                     <td>
+
+                         <div class="postImg aspect-ratio-box">
+                             <div class="aspect-ratio-box-inside">
+
+                                 <img class="img" src="@item.Img1"/>
+
+                             </div>
+                         </div>
+
+                     </td>
+                     <td>
+                         @Html.DisplayFor(modelItem => item.Title)
+                     </td>
+                     <td>
+                         @Html.DisplayFor(modelItem => item.Created)
+                     </td>
+                     <td>
+                         @Html.DisplayFor(modelItem => item.Author)
+                     </td>
+                     <td>
+
+                         <input type="button" value="Edit" class="btn btn-primary" onclick="window.location = '@Url.Action("Edit", "Admin", new {id = item.Id})'"/>
+                         <input type="button" value="Details" class="btn btn-info" onclick="window.location = '@Url.Action("Details", "Admin", new {id = item.Id})'"/>
+                         @*<input type="button" value="Add Image" class="btn" onclick="window.location = '@Url.Action("UploadImage", "Admin", new {id = item.Id})'"/>*@
+                         <input type="button" value="Add Image" data-toggle="modal" data-target="#trailModal" class="addImage btn" data-Id="@item.Id"/>
+                         <input type="button" value="Download Image" class="btn btn-outline-light" onclick="window.location = '@Url.Action("DownloadImage", "Admin", new {id = item.Id})'"/>
+                         <input type="button" value="Delete Image" class="btn btn-secondary btn-outline-secondary" onclick="window.location = '@Url.Action("DeleteImage", "Admin", new {id = item.Id})'"/>
+                         <input type="button" value="Delete" class="btn btn-danger btn-outline-danger" onclick="window.location = '@Url.Action("Delete", "Admin", new {id = item.Id})'"/>
+                     </td>
+                 </tr>
+             }
+        }
+
+        </table>
+        <br/>
+        <input type="button" value="Back" class="btn btn-danger" onclick="window.location = '@Url.Action("Index", "Admin")'"/>
+
+    </div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="trailModal" tabindex="-1" role="dialog" aria-labelledby="trailModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <form method="post" enctype="multipart/form-data" asp-controller="Admin" asp-action="UploadImage">
+            <div class="modal-header">
+                <h5 class="modal-title" id="trailModalLabel">Dodaj zdjęcie</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+               
+                <label class="sr-only"> </label>
+                <input class="form-control" type="file" name="file" accept=".png,.jpg,.jpeg,.gif"/>
+                <input type="hidden" name="Id" id="Id" value=""/>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-success">Dodaj</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Anuluj</button>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>

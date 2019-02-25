@@ -1,0 +1,32 @@
+@model Subscriber
+
+<div class="form-row justify-content-center mt-5">
+    
+    <div class="col-md-9 text-center bg-dark rounded text-white p-4">
+        
+        @if (string.IsNullOrEmpty(Model.Email))
+        {
+            <h2 class="m-2">Anulowanie subskrypcji ilovecook.pl</h2>
+            
+            <form name="DeleteSub" asp-controller="Home" asp-action="DeleteSubscriber" method="get">
+                
+                <div class="form-group">
+                    <label class="sr-only"></label>
+                    <span class="m-2">Podaj twój adres email:</span>
+                    <input class="form-control m-2" name="email"/>
+                </div>
+                <button  id="deleteSubButton" type="submit" class="btn btn-success">Szukaj</button>
+            </form>
+            
+        }
+        else
+        {
+            <h2 class="m-2">Witaj @Model.Name</h2>
+            <h2 class="m-2">Twój adres email to : @Model.Email</h2>
+            <span class="mt-2 mr-3">Kliknij w przycisk aby anulować subskrypcję</span>                                
+            <input class="btn btn-danger font-13 deleteSubBut" type="button" value="Usuń mój email" onclick="window.location = '@Url.Action("Delete", "Home", new {id = Model.Id})'">
+        }
+
+
+    </div>
+</div>

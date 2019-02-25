@@ -1,0 +1,37 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <MvcRazorCompileOnPublish>false</MvcRazorCompileOnPublish>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="GoogleAnalyticsTagHelperComponent" Version="1.0.0" />
+    <PackageReference Include="jQuery.Validation" Version="1.17.0" />
+    <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.1" />
+    <PackageReference Include="RazorLight" Version="2.0.0-beta1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Migrations" />
+    <Folder Include="src\defaults" />
+    <Folder Include="src\Images" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="wwwroot\lib\bootstrap\dist\css\bootstrap-theme.css" />
+    <Content Remove="wwwroot\lib\bootstrap\dist\css\bootstrap-theme.css.map" />
+    <Content Remove="wwwroot\lib\bootstrap\dist\css\bootstrap-theme.min.css" />
+    <Content Remove="wwwroot\lib\bootstrap\dist\css\bootstrap-theme.min.css.map" />
+    <Content Remove="wwwroot\lib\bootstrap\.bower.json" />
+    <Content Update="wwwroot\Templates\ConfirmNewsletter.cshtml">
+      <CopyToPublishDirectory>Always</CopyToPublishDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\Templates\Post.cshtml">
+      <CopyToPublishDirectory>Always</CopyToPublishDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+</Project>

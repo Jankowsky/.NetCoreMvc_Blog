@@ -1,0 +1,62 @@
+@using Microsoft.EntityFrameworkCore.Scaffolding
+@model Models.Post
+
+@{
+    int end = @Model.PostText.Length;
+    if (Model.PostText.Length > 30)
+    {
+        end = 30;
+    }
+    
+}
+
+@section metatags {
+    <meta property="og:title" content="@Model.Title">
+    <meta property="og:image" content="@Model.Img1">
+    <meta property="og:type"  content="article" />
+    <meta property="og:description" content="@(Model.PostText.Substring(0, end) + "...")"/>
+}
+
+
+<div class="form-row justify-content-center mt-5">
+    <div class="col-md-9">
+        <div class="postBackground">
+            <div class="col-4 col-sm-4 col-centered">
+                @{
+                    Random rnd= new Random();
+                    int pin = rnd.Next(1, 6);
+                    string pinSrc = "/images/pinezki/pinezka" + pin + ".png";
+                }
+                <img class="pinPost" src=@pinSrc />
+            </div>
+            <div class="postTitle text-center">
+                <span>@Model.Title</span>
+                <br/>
+            </div>
+            <div class="postImg">
+                @if (System.IO.File.Exists(Html.ViewBag.ServerPath + Model.Img1))
+                {
+                    <img class="img" src="@Model.Img1"/>
+                }
+                else
+                {
+                    <img class="img" src="/src/defaults/dish.jpg"/>
+                }
+            </div>
+            <div class="postText">
+                @*<span>@Html.DisplayFor(modelItem => Model[j].PostText)</span>*@
+                <span>@Html.Raw(Model.PostText) </span>
+                <br/>
+            </div>
+            <div class="postBottom">
+                <span class="text-left author"> @Model.Author</span>
+
+                <span class="date">@Model.Created.ToShortDateString()</span>
+            </div>
+        </div>      
+    </div>
+    <br/>
+</div>
+<div class="justify-content-center form-row">
+    <input type="button" value="Cofnij" class="btn btn-lg btn-danger" onclick="window.location = '@Url.Action("Index", "Home")'"/>
+</div>

@@ -1,0 +1,522 @@
+/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification 
+for details on configuring this project to bundle and minify static web assets. */
+
+*{
+    box-sizing:border-box;           /* easier box-model calculations */
+    -webkit-box-sizing: border-box;
+}
+
+body {
+    
+    padding-bottom: 90pt;
+    background-image: url("../images/cegly.jpg");
+    
+}
+
+
+
+.hidden{
+    visibility: hidden;
+}
+
+.col-centered{
+    float: none;
+    margin: 0 auto;
+}
+
+.whiteText {
+    color: black;
+}
+
+.btn-rounded {
+    border-radius: 25px;
+}
+
+.bigText {
+    font-size: large;
+}
+
+.title {
+    text-align: center;
+    display: flex;
+    position: absolute;
+    
+    
+}
+.woodPlate{
+    padding-top: 20px;
+    width: 50%!important;
+    padding-bottom: 20px;
+    
+}
+
+.footer {
+    padding-top: 5pt;
+    padding-bottom: 3pt;
+    padding-right: 20pt;
+    padding-left: 40pt;
+    background-color: #3c3c3c;
+    color: white;
+    position: fixed;
+    
+}
+
+.cookies {
+   
+    background-color: #c4c2c3;
+    
+    padding-bottom:1px;
+    color: black;
+    z-index: 3;
+}
+
+
+
+/* Wrapping element */
+/* Set some basic padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Carousel */
+.carousel-caption p {
+    font-size: 20px;
+    line-height: 1.4;
+}
+
+/* Make .svg files in the carousel display properly in older browsers */
+.carousel-inner .item img[src$=".svg"] {
+    width: 100%;
+}
+
+/* QR code generator */
+#qrCode {
+    margin: 15px;
+}
+
+
+
+/* Hide/rearrange for smaller screens */
+@media screen and (max-width: 767px) {
+    /* Hide captions */
+    .carousel-caption {
+        display: none;
+    }
+}
+
+/* turn off resizing*/
+textarea {
+    resize: none;
+}
+
+.postBackground {
+    padding-top: 0px;
+    padding-bottom: 20px;
+    /*background-color: #e38d13;*/
+    background-image: url("../images/paper.jpg");
+    margin-top: 0px;
+    min-width: 200px;
+    border-radius: 25px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: black;
+}
+
+.postBackgroundIndex {
+    padding-top: 0px;
+    padding-bottom: 20px;
+    /*background-color: #e38d13;*/
+    background-image: url("../images/paper.jpg");
+    margin-top: 0px;
+    
+    border-radius: 25px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: black;
+}
+
+.pin {
+    
+    height: inherit;
+    object-fit: contain;
+    width: 85%;
+    margin-top: -40%;
+    image-orientation: from-image;
+    overflow: visible;
+    
+    
+}
+
+.pinPost {
+
+    height: inherit;
+    object-fit: contain;
+    width: 85%;
+    margin-top: -40%;
+    image-orientation: from-image;
+    overflow: visible;
+
+
+}
+
+
+
+.centered {
+    display: flex;
+    justify-content: center;
+}
+
+
+
+.logo {
+    align-items: center;
+    margin-top: 90px;
+    margin-bottom: 0px;
+    font-size: 55px!important;
+    font-weight: bolder;
+    font-family: "Allerta Stencil" , Sans-serif;
+    color: #000000;
+    transform: scaleY(1.4);
+    
+}
+
+
+
+.postTitle {
+    font-weight: bold;
+    padding-bottom: 20px;
+    font-size: x-large;
+    cursor: pointer;
+    line-height: normal;
+}
+
+
+.postImg {
+    text-align: center;
+    cursor: pointer;
+}
+
+.img {
+    height: inherit;
+    object-fit: contain;
+    width: 95%;
+    image-orientation: from-image;
+    
+}
+
+.aspect-ratio-box {
+    height: 0;
+    overflow: hidden;
+    padding-top:  75%;
+    position: relative;
+}
+.aspect-ratio-box-inside {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    
+}
+
+.postText {
+    
+    margin: 10px;
+    margin-top: 20px;
+    
+}
+
+.author {
+    font-style: italic;
+    margin-left: 30px;
+    float: left;
+}
+
+.date {
+    margin-right: 30px;
+    float: right;
+}
+
+.postBottom {
+    margin-top: 30px;
+    clear: both;
+}
+
+.row {
+    margin: 0px;
+}
+
+.logoutBtn {
+    float: right;
+    
+}
+
+.labelPost {
+    display: block;
+    margin-right: 15%;
+    margin-left: 15%;
+}
+
+div.cazary iframe.cazary-edit{
+    background-color: white;
+    
+}
+.navbar{
+    margin-top: -40px;
+    padding-top: 0px;!important;
+}
+
+.nav.navbar-nav {
+    padding-top: 0px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+@media (min-width: 768px) {
+    .navbar-nav {
+        float: none;
+    }
+}
+
+tr,th{
+    text-align: center;
+}
+table {
+    text-align: center;
+    color: white;
+}
+
+.accordion-toggle {cursor: pointer; color: dodgerblue}
+.accordion-content {display: none;}
+.accordion-content.default {display: block;}
+
+.btn{
+    margin-top: 10px;
+}
+
+.error {
+    color: Red;
+}
+
+.admin-footer {
+    font-size: 10px;
+}
+
+.privacy-confirm {
+    font-size: 14px;
+}
+
+.font-13 {
+    font-size: 13px;
+}
+.hyperlink {
+    color:  deepskyblue!important;
+    cursor: pointer!important;
+}
+
+.glyphicon {
+    padding-right: 5px;
+    font-size: 25px;
+}
+
+.addSubscriber {
+    margin-top: 0px;
+    padding-top: 0px;
+    
+}
+
+
+
+
+
+
+
+
+.footer-dark {
+    padding-top:10px;
+    color:#f0f9ff;
+    background-color:#282d32;
+    z-index: 2;
+}
+
+
+.footer-dark h3 {
+    margin-top:0;
+    
+    font-weight:bold;
+    font-size:16px;
+}
+
+.footer-dark ul {
+    padding:0;
+    list-style:none;
+    line-height:1.6;
+    font-size:14px;
+    margin-bottom:0;
+}
+
+.footer-dark ul a {
+    color:inherit;
+    text-decoration:none;
+    opacity:0.6;
+}
+
+.footer-dark ul a:hover {
+    opacity:0.8;
+}
+
+.inline {
+    display: inline-block;
+}
+
+.copyright {
+    text-align:right;
+    padding-top:24px;
+    opacity:0.3;
+    font-size:13px;
+    margin-bottom:0;
+}
+
+.button-words {
+    word-wrap: break-word;
+    
+    overflow: hidden;
+    
+}
+
+.footer-dark .inline .instagram {
+    margin-right: 80px;
+
+}
+
+.cookies .btn {
+    font-size: 12px;
+}
+
+.deleteSubBut {
+    margin: 0px;
+    padding: 4px;
+}
+
+@-webkit-keyframes swinging{
+    0%{-webkit-transform: rotate(10deg);}
+    50%{-webkit-transform: rotate(-5deg)}
+    100%{-webkit-transform: rotate(10deg);}
+}
+
+@keyframes swinging{
+    0%{transform: rotate(10deg);}
+    50%{transform: rotate(-5deg)}
+    100%{transform: rotate(10deg);}
+}
+
+.swingimage{
+    position: relative;
+    
+    -webkit-transform-origin: 50% 0;
+    transform-origin: 50% 0;
+    -webkit-animation: swinging 3.5s ease-in-out forwards infinite;
+    animation: swinging 3.5s ease-in-out forwards infinite;
+}
+
+@media (max-width:400px) {
+    .pin {
+        margin-left: -100%!important;
+    }
+}
+
+@media (max-width:576px) {
+    
+    
+    .author {
+        font-size: 7px!important;
+    }
+    .postTitle {
+        font-size: 10px!important;
+       
+    }
+    .pin {
+        margin-left: -50%;
+       
+        display: flex;
+        
+        min-width: 40px;
+        
+    }
+}
+
+@media (max-width:768px) {
+    .date{
+        display: none;
+    }
+    .accordion-toggle {
+        display: none;
+    }
+    .accordion-content {
+        display: none;
+    }
+    .postTitle {
+        font-size: medium;
+        padding-bottom: 5px;
+    }
+    .author {
+        font-size: small;
+    }
+}
+
+@media (max-width:991px) {
+    .woodPlate{
+        padding-top: 15px;
+        width: 80%!important;
+        padding-bottom: 15px;
+
+    }
+    
+    
+    .footer-dark .float-right a {
+        float: left!important;
+    }
+    .footer-dark .float-right h3 {
+        float: left!important;
+    }
+    
+    .footer-dark .inline  {
+        font-size: 12px;
+        
+    }
+    .footer-dark .inline a {
+        font-size: 10px;
+        
+    }
+    .footer-dark .inline .instagram {
+        margin-right: 20px;
+
+    }
+    .footer-dark .inline .glyphicon {
+        font-size: 10px;
+    }
+    .footer-dark .inline .copyright {
+        font-size: 10px;
+    }
+    .title .logo {
+        font-size: 45px;
+    }
+    .postBottom {
+        margin-top: 0px;
+    }
+    .postBackground {
+        width: 100%!important;
+    }
+    .cookies .font-13{
+        font-size: 10px;
+    }
+    .cookies .btn {
+        font-size: 8px;
+    }
+    .pinPost {
+        
+    }
+    
+}

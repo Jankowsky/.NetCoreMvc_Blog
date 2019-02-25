@@ -1,0 +1,84 @@
+@model List<Milka.Models.Post>
+
+
+ 
+@section metatags {
+    <meta property="og:title" content="I love Cook">
+    <meta property="og:image" content="http://ilovecook.pl/images/logo.png">
+    <meta property="og:type"  content="article" />
+    <meta property="og:description" content="Opis stronki"/>
+    <meta property="og:image:width" content="800" />
+    <meta property="og:image:height" content="700" />
+}
+
+<div id="accordion">
+    
+    @for (var j=0; j< Model.Count; j++)
+    {
+        if(j  == 0)
+        {
+            @Html.Raw("<div class=\"row\">")
+        }
+        
+        if ((j % 3) == 0 && j != 0 )
+        {
+            @Html.Raw("</div>")
+            @Html.Raw("<div class=\"row\">")
+            
+        }
+        
+        <div class="col-4 col-sm-4 col-md-4 col-lg-4 mt-2 p-1">
+           
+            <div class="postBackgroundIndex text-center">
+                <div class="col-5 col-sm-4 col-centered">
+                    @{
+                        Random rnd= new Random();
+                        int pin = rnd.Next(1, 6);
+                        string pinSrc = "/images/pinezki/pinezka" + pin + ".png";
+                    }
+                    <img class="pin text-center" src=@pinSrc />
+                </div>
+                <div onclick="window.location = '@Url.Action("Post", "Home", new {id = Model[j].Id})'" class="postTitle text-center">
+
+                    <span>@Html.DisplayFor(modelItem => Model[j].Title)</span>
+
+                    <br/>
+                </div>
+                <div class="postImg aspect-ratio-box">
+                    <div onclick="window.location = '@Url.Action("Post", "Home", new {id = Model[j].Id})'" class="aspect-ratio-box-inside">
+                        @if (System.IO.File.Exists(Html.ViewBag.ServerPath + Model[j].Img1))
+                        {
+                            <img class="img" src="@Model[j].Img1"/>
+                        }
+                        else
+                        {
+                            <img class="img" src="/src/defaults/dish.jpg"/>
+                        }
+                    </div>
+                </div>
+
+                <p class="accordion-toggle btn btn-dark btn-sm text-light rounded-circle">Pokaż przepis</p>
+                <div class="postText accordion-content">
+
+                    <span name="">@Html.Raw(Model[j].PostText) </span>
+
+                    <br/>
+                </div>
+
+                <div class="postBottom">
+                    <span class="text-left author"> @Model[j].Author</span>
+
+                    <span class="date">@Model[j].Created.ToShortDateString()</span>
+                </div>
+            </div>
+        </div>
+
+
+
+        if ((j + 1) == Model.Count)
+        {
+            @Html.Raw("</div>")
+        }
+    }
+
+</div>

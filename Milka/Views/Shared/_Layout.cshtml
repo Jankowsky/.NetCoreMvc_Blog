@@ -1,0 +1,145 @@
+﻿<!DOCTYPE html>
+<html lang="pl">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        @await Html.PartialAsync("_Favicon")
+        <title>I Love Cook</title>
+        @RenderSection("metatags", false)
+        
+        <link rel="manifest" href="site.webmanifest.json">
+        
+        <link rel="stylesheet" type="text/css" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+        <link rel="stylesheet" type="text/css" href="~/css/site.css" asp-append-version="true" />
+        <link rel="stylesheet" type="text/css" href="~/lib/bootstrap/dist/css/bootstrap-glyphicons.css"/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+        
+        <link rel="stylesheet" type="text/css" href="~/dist/themes/flat/style.css" />
+        <script type="text/javascript" src="https://code.jquery.com/jquery-1.7.min.js"></script>
+        <script type="text/javascript" src="~/dist/cazary.min.js"></script>
+        <script src="~/js/site.js" asp-append-version="true"></script>
+        
+        
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Allerta+Stencil">
+    </head>
+<body>
+
+@if (User.Identity.IsAuthenticated)
+{
+    
+    <div class="row logoutBtn">
+        
+        <div class="col-5">
+            <a class="btn btn-success rounded-circle logoutBtn" asp-action="Index" asp-controller="Admin">Admin Panel</a>
+        </div>
+        <div class="col-5">
+            <a class="btn btn-primary rounded-circle logoutBtn" asp-action="Logout" asp-controller="Account">Logout</a>
+        </div>
+    </div>
+}
+
+
+<div class="container ">
+    <a asp-action="Index" asp-controller="Home" class="justify-content-center">
+    <nav class="navbar justify-content-center swingimage">
+        <img src="~/images/logo.png" style="width: inherit" class="woodPlate"></img>
+        <div class="title">       
+        </div>
+    </nav>
+    </a>
+</div>
+
+
+
+<div class="container body-content mt-5">
+    @RenderBody()
+</div>
+
+
+<partial name="_CookieConsentPartial"/>
+
+<div class="w-100 footer-dark fixed-bottom">
+    <footer class="container">      
+        <div class="inline">
+            <span class="copyright">&copy; 2018 - Jankowsky-dev</span>
+        </div>
+        <div class="inline float-right mb-2">
+            <a data-toggle="modal" data-target="#subModal" class="addSubscriber btn btn-sm btn-secondary btn-block button-words">
+                <span class="glyphicon glyphicon-envelope"></span>
+                <span>Zapisz się do newsletter'a</span>
+            </a>
+        </div>
+        <div class="inline float-right">
+            <h3 class="inline">Zajrzyj tutaj:</h3>
+            <a href="https://www.instagram.com/i.love.cook.m/" target="_blank" class="ml-2 instagram inline">
+                <span class="fa fa-instagram"></span>
+            </a>
+        </div>
+        
+    </footer>
+</div>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="subModal" tabindex="-1" role="dialog" aria-labelledby="subModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content bg-dark text-white">
+            <form method="post" enctype="multipart/form-data" asp-controller="Home" asp-action="AddSubscriber" name="AddSubscriber">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="subModalLabel">Zapisz się do Newsletter'a.</h5>
+                    <button type="button" class="close bg-danger rounded p-1 m-1" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+               
+                    <div class="form-group col">
+                        <label class="sr-only"></label>
+                       
+                        <span>Imię : </span>
+                        <input class="form-control" name="Name" minlength="2"/>
+                    </div>
+                    
+                    <div class="form-group col">
+                        <label class="sr-only"></label>
+                        
+                        <span>Email : </span>
+                        <input class="form-control" type="email" name="Email"  />
+                    </div>
+                    
+                    <div class="form-group col">
+                      
+                        
+                        @Html.CheckBox("RulesAcceptance", false)
+                        <span class="text-sm-left privacy-confirm">
+                            Chcę zapisać się do newslettera, a co za tym idzie wyrażam zgodę na przesyłanie na mój adres e-mail informacji o nowościach, promocjach, produktach i usługach pochodzących od Mileny Badowskiej. Wiem, że w każdej chwili będę mógł wycofać zgodę.
+                        </span>
+                    </div>
+                    <button disabled="disabled" id="submitNewsletter" type="submit" class="btn btn-success">Zapisz się</button>
+                </div>
+                <div class="modal-footer admin-footer">
+                    <span>Administratorem Twoich danych osobowych będzie Milena Badowska,
+                        Poznań, e-mail: i.love.cook.m@gmail.com. Szczegółowe informacje 
+                        o przetwarzaniu danych osobowych znajdują się w
+                        <a class="hyperlink" data-toggle="modal" data-target="#privacyModal">polityce prywatności</a>
+                        . Ponadto, odnajdziesz je w wiadomości potwierdzającej zapis do newslettera.</span>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+
+
+<partial name="_Privacy"/>
+
+
+@RenderSection("Scripts", required: false)
+</body>
+</html>

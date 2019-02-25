@@ -1,0 +1,13 @@
+/Users/jankes/Projects/Milka/Milka/obj/Debug/netcoreapp2.1/Milka.csprojAssemblyReference.cache
+/Users/jankes/Projects/Milka/Milka/obj/Debug/netcoreapp2.1/Milka.csproj.CoreCompileInputs.cache
+/Users/jankes/Projects/Milka/Milka/obj/Debug/netcoreapp2.1/Milka.AssemblyInfoInputs.cache
+/Users/jankes/Projects/Milka/Milka/obj/Debug/netcoreapp2.1/Milka.AssemblyInfo.cs
+/Users/jankes/Projects/Milka/Milka/obj/Debug/netcoreapp2.1/Milka.dll
+/Users/jankes/Projects/Milka/Milka/obj/Debug/netcoreapp2.1/Milka.pdb
+/Users/jankes/Projects/Milka/Milka/bin/Debug/netcoreapp2.1/Milka.deps.json
+/Users/jankes/Projects/Milka/Milka/bin/Debug/netcoreapp2.1/Milka.runtimeconfig.json
+/Users/jankes/Projects/Milka/Milka/bin/Debug/netcoreapp2.1/Milka.runtimeconfig.dev.json
+/Users/jankes/Projects/Milka/Milka/bin/Debug/netcoreapp2.1/Milka.dll
+/Users/jankes/Projects/Milka/Milka/bin/Debug/netcoreapp2.1/Milka.pdb
+/Users/jankes/Projects/Milka/Milka/bin/Debug/netcoreapp2.1/wwwroot/Templates/ConfirmNewsletter.cshtml
+/Users/jankes/Projects/Milka/Milka/bin/Debug/netcoreapp2.1/wwwroot/Templates/Post.cshtml

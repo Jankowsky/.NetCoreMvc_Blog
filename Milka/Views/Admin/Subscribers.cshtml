@@ -1,0 +1,72 @@
+@model IEnumerable<Milka.Models.Subscriber>
+
+<div class="form-row text-center">
+<div class="col-12">
+<p>
+    <br/>
+    <br/>
+            
+</p>
+<br/>
+<div class="bg-primary p-1 text-white">
+    <h4>List of Subscribers</h4>
+</div>
+<table class="table table-bordered table-dark">
+<tr>
+    <th scope="col">
+        @Html.DisplayNameFor(model => model.Id)
+    </th>
+    <th scope="col">
+        @Html.DisplayNameFor(model => model.Email)
+    </th>
+    <th scope="col">
+        @Html.DisplayNameFor(model => model.Name)
+    </th>
+    <th scope="col">
+        @Html.DisplayNameFor(model => model.Created)
+    </th>
+    <th scope="col">
+        @Html.DisplayNameFor(model => model.RulesAcceptance)
+    </th>
+    <th scope="col">
+       
+    </th>
+</tr>
+
+@if (Model.Count() == 0)
+{
+    <tr><td colspan="6" class="text-center">Empty.</td></tr>
+}
+else
+{
+             foreach (var item in Model)
+             {
+                 <tr scope="row">
+                     <td>
+                         @item.Id
+                     </td>
+                     <td>
+                        @item.Email
+                     </td>
+                     <td>
+                         @item.Name
+                     </td>
+                     <td>
+                         @item.Created
+                     </td>
+                     <td>
+                         @item.RulesAcceptance
+                     </td>
+                     <td>
+                         <input type="button" value="Delete" class="btn btn-danger btn-outline-danger" onclick="window.location = '@Url.Action("DeleteSubscriber", "Admin", new {id = item.Id})'"/>
+                     </td>
+                 </tr>
+             }
+        }
+
+        </table>
+        <br/>
+        <input type="button" value="Back" class="btn btn-danger" onclick="window.location = '@Url.Action("Index", "Admin")'"/>
+
+    </div>
+</div>

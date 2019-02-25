@@ -1,0 +1,37 @@
+@model Models.Post
+
+
+<div class="form-row justify-content-center">
+    <div class="col-6">
+        <div class="postBackground">
+            <div class="postTitle text-center">
+                <span>@Html.DisplayFor(modelItem => Model.Title)</span>
+                <br/>
+            </div>
+            <div class="postImg">
+                @if (System.IO.File.Exists(Html.ViewBag.ServerPath + Model.Img1))
+                {
+                    <img class="img" src="@Model.Img1"/>
+                }
+                else
+                {
+                    <img class="img" src="/src/defaults/dish.jpg"/>
+                }
+            </div>
+            <div class="postText">
+                @*<span>@Html.DisplayFor(modelItem => Model[j].PostText)</span>*@
+                <span>@Html.Raw(Model.PostText) </span>
+                <br/>
+            </div>
+            <div class="postBottom">
+                <span class="text-left author"> @Html.DisplayFor(modelItem => Model.Author)</span>
+
+                <span class="date">@Html.DisplayFor(modelItem => Model.Created)</span>
+            </div>
+        </div>      
+    </div>
+    <br/>
+</div>
+<div class="justify-content-center form-row">
+    <input type="button" value="Back" class="btn btn-lg btn-danger" onclick="window.location = '@Url.Action("Postmanagments", "Admin")'"/>
+</div>
